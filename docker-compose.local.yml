@@ -1,0 +1,21 @@
+services:
+  gateway:
+    ports:
+      - "8080:80"
+
+  app:
+    command:
+      - dev
+    develop:
+      watch:
+        - action: sync
+          path: app
+          target: /var/www
+          ignore:
+            - /var/www/vendor
+        - action: rebuild
+          path: server/app/composer.lock
+
+  db:
+    ports:
+      - "3306:3306"

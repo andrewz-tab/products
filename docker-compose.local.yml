@@ -6,6 +6,8 @@ services:
   app:
     command:
       - dev
+    ports:
+      - "${VITE_PORT}:${VITE_PORT}"
     develop:
       watch:
         - action: sync

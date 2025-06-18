@@ -4,17 +4,17 @@ services:
     restart: unless-stopped
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./app/public:/var/www/public
     networks:
       - products
-    depends_on:
-      app:
-        condition: service_started
 
   app:
     build:
       context: ./app
       target: server
     restart: unless-stopped
+    volumes:
+      - ./app/public:/var/www/public
     env_file:
       ./app/.env.app
     networks:

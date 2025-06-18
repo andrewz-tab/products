@@ -26,6 +26,9 @@ COPY --chown=www-data:www-data . .
 RUN chmod +x entrypoint.sh
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
+COPY --from=node /usr/local/bin /usr/local/bin
+COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
+
 RUN composer install \
     --no-dev \
     --no-interaction \
@@ -36,5 +39,7 @@ RUN composer install \
     --apcu-autoloader \
     --ansi
 
-RUN chmod +x entrypoint.sh
+RUN npm install
+RUN npm run build
+
 ENTRYPOINT [ "./entrypoint.sh" ]

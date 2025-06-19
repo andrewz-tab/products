@@ -30,7 +30,6 @@ COPY --from=node /usr/local/bin /usr/local/bin
 COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
 
 RUN composer install \
-    --no-dev \
     --no-interaction \
     --prefer-dist \
     --ignore-platform-reqs \

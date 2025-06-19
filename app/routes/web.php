@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,11 @@ Route::get('/', function () {
 });
 
 Route::resource('products', ProductController::class);
+Route::resource('orders', OrderController::class)
+    ->only(['show', 'index']);
+Route::resource('products.orders', OrderController::class)
+    ->only(['create']);
+
+Route::post('/products/{productId}/orders', [OrderController::class, 'store'])->name('products.orders.store');
+Route::post('/orders/{order}/complete', [OrderController::class, 'complete'])->name('orders.complete');
+

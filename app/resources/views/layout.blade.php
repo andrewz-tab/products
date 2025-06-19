@@ -19,7 +19,7 @@
         <a href="{{ route('products.index') }}" class="text-gray-600 hover:text-black">
             Товары
         </a>
-        <a href="#" class="text-gray-600 hover:text-black">
+        <a href="{{ route('orders.index') }}" class="text-gray-600 hover:text-black">
             Заказы
         </a>
     </div>

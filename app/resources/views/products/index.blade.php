@@ -42,4 +42,6 @@
             </tbody>
         </table>
     </div>
+
+    {{ $products->links('pagination') }}
 @endsection

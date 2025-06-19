@@ -13,3 +13,4 @@ docker compose up -d
 #or
 docker compose up --watch #для разработки
 ```
+Приложение, развернутое локально, доступно по http://localhost:8080/

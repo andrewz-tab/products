@@ -2,16 +2,32 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
+use App\Helpers\SeedHelper;
+use App\Models\Order;
+use App\Services\Seeder\BaseSeeder;
 
-class OrderSeeder extends Seeder
+class OrderSeeder extends BaseSeeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
+    protected function getModel(): string
     {
-        \App\Models\Order::factory(15)->create();
+        return Order::class;
+    }
+
+    protected function getData(): array
+    {
+        return [
+            [
+                'id' => SeedHelper::makeId(1),
+                'product_id' => SeedHelper::makeId(1),
+            ],
+            [
+                'id' => SeedHelper::makeId(2),
+                'product_id' => SeedHelper::makeId(2),
+            ],
+            [
+                'id' => SeedHelper::makeId(3),
+                'product_id' => SeedHelper::makeId(3),
+            ],
+        ];
     }
 }

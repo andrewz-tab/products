@@ -24,8 +24,10 @@ class OrderFactory extends Factory
             'comment' => $this->faker->text(),
             'status' => $this->faker->randomElement(OrderStatus::values()),
             'amount' => $this->faker->randomFloat(2, 10),
-            'created_at' => $this->faker->dateTime(),
-            'updated_at' => $this->faker->dateTime(),
+            'total_price' => $this->faker->randomFloat(2, 10),
+            'product_name' => $this->faker->word(),
+            'product_category' => $this->faker->word(),
+            'product_price' => $this->faker->randomFloat(2, 10),
         ];
     }
 }

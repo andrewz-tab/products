@@ -3,20 +3,30 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
-use Illuminate\Database\Seeder;
+use App\Services\Seeder\BaseSeeder;
 
-class CategorySeeder extends Seeder
+class CategorySeeder extends BaseSeeder
 {
-    private array $categories = [
-        'Легкий',
-        'Хрупкий',
-        'Тяжелый',
-    ];
-
-    public function run(): void
+    protected function getModel(): string
     {
-        foreach ($this->categories as $category) {
-            Category::query()->firstOrCreate(['name' => $category]);
-        }
+        return Category::class;
+    }
+
+    protected function getData(): array
+    {
+        return [
+            [
+                'id' => 1,
+                'name' => 'Легкий',
+            ],
+            [
+                'id' => 2,
+                'name' => 'Хрупкий',
+            ],
+            [
+                'id' => 3,
+                'name' => 'Тяжелый',
+            ],
+        ];
     }
 }

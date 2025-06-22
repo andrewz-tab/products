@@ -48,7 +48,7 @@ class OrderTest extends TestCase
         $this->assertDatabaseMissing('orders', $data);
     }
 
-    public function test_the_order_delete_not_allowed_ok(): void
+    public function test_the_order_delete_not_allowed(): void
     {
         $data = ['id' => self::DELETE_ORDER];
 
@@ -59,7 +59,7 @@ class OrderTest extends TestCase
         $response->assertStatus(405);
     }
 
-    public function test_the_order_update_not_allowed_ok(): void
+    public function test_the_order_update_not_allowed(): void
     {
         $dataId = ['id' => self::UPDATE_ORDER];
         $data = $this->getDefaultOrderAttributes();
